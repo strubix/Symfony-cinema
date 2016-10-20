@@ -12,6 +12,10 @@ Training Symfony project.
 cd app && composer update
 ```
 
+### Database
+
+Import database.sql in phpMyAdmin.
+
 ## Running the tests
 
 Tests are not implemented yet.
