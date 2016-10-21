@@ -1,0 +1,46 @@
+MainBundle\Entity\GrilleProgramme:
+    type: entity
+    table: grille_programme
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        idFilm:
+            type: integer
+            nullable: false
+            unsigned: false
+            column: id_film
+        idSalle:
+            type: integer
+            nullable: false
+            unsigned: false
+            column: id_salle
+        idFichePersoOuvreur:
+            type: integer
+            nullable: false
+            unsigned: false
+            column: id_fiche_perso_ouvreur
+        idFichePersoTechnicien:
+            type: integer
+            nullable: false
+            unsigned: false
+            column: id_fiche_perso_technicien
+        idFichePersoMenage:
+            type: integer
+            nullable: false
+            unsigned: false
+            column: id_fiche_perso_menage
+        debutSceance:
+            type: datetime
+            nullable: false
+            column: debut_sceance
+        finSceance:
+            type: datetime
+            nullable: false
+            column: fin_sceance
+    lifecycleCallbacks: {  }

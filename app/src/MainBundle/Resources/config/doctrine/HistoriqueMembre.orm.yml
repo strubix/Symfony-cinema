@@ -1,0 +1,26 @@
+MainBundle\Entity\HistoriqueMembre:
+    type: entity
+    table: historique_membre
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        idMembre:
+            type: integer
+            nullable: false
+            unsigned: false
+            column: id_membre
+        idFilm:
+            type: integer
+            nullable: false
+            unsigned: false
+            column: id_film
+        date:
+            type: datetime
+            nullable: false
+    lifecycleCallbacks: {  }

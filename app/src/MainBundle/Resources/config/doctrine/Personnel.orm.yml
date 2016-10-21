@@ -1,0 +1,31 @@
+MainBundle\Entity\Personnel:
+    type: entity
+    table: personnel
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        idFichePerso:
+            type: integer
+            nullable: false
+            unsigned: false
+            column: id_fiche_perso
+        idJob:
+            type: boolean
+            nullable: false
+            column: id_job
+        horraire:
+            type: string
+            nullable: false
+            length: null
+            fixed: false
+        dateRecrutement:
+            type: datetime
+            nullable: false
+            column: date_recrutement
+    lifecycleCallbacks: {  }

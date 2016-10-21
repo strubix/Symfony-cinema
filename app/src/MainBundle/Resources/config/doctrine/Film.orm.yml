@@ -1,0 +1,54 @@
+MainBundle\Entity\Film:
+    type: entity
+    table: film
+    indexes:
+        id_genre:
+            columns:
+                - id_genre
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        idGenre:
+            type: boolean
+            nullable: true
+            column: id_genre
+        idDistrib:
+            type: integer
+            nullable: true
+            unsigned: false
+            column: id_distrib
+        titre:
+            type: string
+            nullable: false
+            length: 255
+            fixed: false
+        resum:
+            type: string
+            nullable: true
+            length: 255
+            fixed: false
+        dateDebutAffiche:
+            type: date
+            nullable: true
+            column: date_debut_affiche
+        dateFinAffiche:
+            type: date
+            nullable: true
+            column: date_fin_affiche
+        dureeMin:
+            type: integer
+            nullable: true
+            unsigned: false
+            column: duree_min
+        anneeProd:
+            type: integer
+            nullable: true
+            unsigned: false
+            column: annee_prod
+    lifecycleCallbacks: {  }

@@ -1,0 +1,40 @@
+MainBundle\Entity\Membre:
+    type: entity
+    table: membre
+    id:
+        id:
+            type: integer
+            nullable: false
+            unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        idFichePerso:
+            type: integer
+            nullable: false
+            unsigned: false
+            column: id_fiche_perso
+        idAbo:
+            type: integer
+            nullable: false
+            unsigned: false
+            column: id_abo
+        dateAbo:
+            type: datetime
+            nullable: false
+            column: date_abo
+        idDernierFilm:
+            type: integer
+            nullable: true
+            unsigned: false
+            column: id_dernier_film
+        dateDernierFilm:
+            type: datetime
+            nullable: true
+            column: date_dernier_film
+        dateInscription:
+            type: datetime
+            nullable: false
+            column: date_inscription
+    lifecycleCallbacks: {  }
