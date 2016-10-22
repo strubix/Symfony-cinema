@@ -1,6 +1,10 @@
 MainBundle\Entity\Film:
     type: entity
     table: film
+    oneToMany:
+        genre:
+            targetEntity: Genre
+            mappedBy: film
     indexes:
         id_genre:
             columns:

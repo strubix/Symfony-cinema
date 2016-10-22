@@ -1,6 +1,10 @@
 MainBundle\Entity\Genre:
     type: entity
     table: genre
+    manyToOne:
+        film:
+            targetEntity: Film
+            inversedBy: genres
     id:
         id:
             type: boolean
