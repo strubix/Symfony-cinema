@@ -19,6 +19,11 @@ class Genre
      */
     private $nom;
 
+    /**
+     * @var \MainBundle\Entity\Film
+     */
+    private $film;
+
 
     /**
      * Get id
@@ -52,11 +57,6 @@ class Genre
     {
         return $this->nom;
     }
-    /**
-     * @var \MainBundle\Entity\Film
-     */
-    private $film;
-
 
     /**
      * Set film
@@ -79,5 +79,33 @@ class Genre
     public function getFilm()
     {
         return $this->film;
+    }
+    /**
+     * @var \MainBundle\Entity\Genre
+     */
+    private $genre;
+
+
+    /**
+     * Set genre
+     *
+     * @param \MainBundle\Entity\Genre $genre
+     * @return Genre
+     */
+    public function setGenre(\MainBundle\Entity\Genre $genre = null)
+    {
+        $this->genre = $genre;
+
+        return $this;
+    }
+
+    /**
+     * Get genre
+     *
+     * @return \MainBundle\Entity\Genre 
+     */
+    public function getGenre()
+    {
+        return $this->genre;
     }
 }

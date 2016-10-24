@@ -1,14 +1,12 @@
 MainBundle\Entity\Film:
     type: entity
     table: film
-    oneToMany:
+    manyToOne:
         genre:
             targetEntity: Genre
-            mappedBy: film
-    indexes:
-        id_genre:
-            columns:
-                - id_genre
+            joinColumn:
+                name: id_genre
+                referencedColumnName: id
     id:
         id:
             type: integer
@@ -16,7 +14,7 @@ MainBundle\Entity\Film:
             unsigned: false
             id: true
             generator:
-                strategy: IDENTITY
+                strategy: AUTO
     fields:
         idGenre:
             type: boolean

@@ -54,6 +54,18 @@ class Film
      */
     private $anneeProd;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $genres;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->genres = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -248,18 +260,6 @@ class Film
     {
         return $this->anneeProd;
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $genres;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->genres = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
      * Add genres
@@ -294,15 +294,28 @@ class Film
         return $this->genres;
     }
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var \MainBundle\Entity\Genre
      */
     private $genre;
 
 
     /**
+     * Set genre
+     *
+     * @param \MainBundle\Entity\Genre $genre
+     * @return Film
+     */
+    public function setGenre(\MainBundle\Entity\Genre $genre = null)
+    {
+        $this->genre = $genre;
+
+        return $this;
+    }
+
+    /**
      * Get genre
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \MainBundle\Entity\Genre 
      */
     public function getGenre()
     {

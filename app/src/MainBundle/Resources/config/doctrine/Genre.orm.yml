@@ -1,17 +1,13 @@
 MainBundle\Entity\Genre:
     type: entity
     table: genre
-    manyToOne:
-        film:
-            targetEntity: Film
-            inversedBy: genres
     id:
         id:
             type: boolean
             nullable: false
             id: true
             generator:
-                strategy: IDENTITY
+                strategy: AUTO
     fields:
         nom:
             type: string

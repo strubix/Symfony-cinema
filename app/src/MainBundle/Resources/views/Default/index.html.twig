@@ -95,7 +95,11 @@
             <div class="card card-block">
                 <h4 class="card-title">{{ movie.titre }}</h4>
                 <p>{{ movie.resum }}</p>
-                <p>{{ genre.nom }}</p>
+                {% if movie.genre %}
+                    {% if movie.genre.nom %}
+                        <p>{{ movie.genre.nom }}</p>
+                    {% endif %}
+                {% endif %}
                 <a href="#" class="card-link">Card link</a>
                 <a href="#" class="card-link">Another link</a>
             </div>
@@ -103,7 +107,6 @@
     </div>
 
     <div class="text-center">{{ knp_pagination_render(movies) }}</div>
-
 
         <hr>
 

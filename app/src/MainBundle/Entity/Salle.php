@@ -136,4 +136,17 @@ class Salle
     {
         return $this->nbrSiege;
     }
+
+    /**
+     * Set id
+     *
+     * @param integer $id
+     * @return Salle
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
 }

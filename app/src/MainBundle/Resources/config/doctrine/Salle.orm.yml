@@ -7,8 +7,6 @@ MainBundle\Entity\Salle:
             nullable: false
             unsigned: false
             id: true
-            generator:
-                strategy: IDENTITY
     fields:
         numeroSalle:
             type: boolean
