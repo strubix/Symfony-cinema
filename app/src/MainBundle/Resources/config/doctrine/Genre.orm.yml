@@ -3,7 +3,7 @@ MainBundle\Entity\Genre:
     table: genre
     id:
         id:
-            type: boolean
+            type: integer
             nullable: false
             id: true
             generator:
