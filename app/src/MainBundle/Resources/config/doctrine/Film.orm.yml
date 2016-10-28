@@ -1,6 +1,7 @@
 MainBundle\Entity\Film:
     type: entity
     table: film
+    repositoryClass: MainBundle\Entity\FilmRepository
     manyToOne:
         genre:
             targetEntity: Genre
