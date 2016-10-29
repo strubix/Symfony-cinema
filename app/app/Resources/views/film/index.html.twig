@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Films{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="well">
+            <h3>Rechercher un film</h3>
+            <form method="post" {{ form_enctype(form) }}>
+                {{ form_widget(form) }}
+            </form>
+        </div>
+
+        {% for movie in movies %}
+            <div class="well">
+                <h4 class="card-title">({{ movie.anneeProd }}) {{ movie.titre }}</h4>
+                <p>{{ movie.resum }}</p>
+                {% if movie.genre is null %}
+                    <p>pas de genre</p>
+                {% else %}
+                    <p>{{ movie.genre.nom }}</p>
+                {% endif %}
+                <a href="#">En savoir +</a>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="text-center">{{ knp_pagination_render(movies) }}</div>
+{% endblock %}

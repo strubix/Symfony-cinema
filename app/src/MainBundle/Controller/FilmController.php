@@ -2,16 +2,26 @@
 
 namespace MainBundle\Controller;
 
+use MainBundle\Entity\Film;
 use MainBundle\Form\FilmType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-class DefaultController extends Controller
+
+/**
+ * Film controller.
+ *
+ */
+class FilmController extends Controller
 {
+    /**
+     * Lists all film entities.
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function indexAction(Request $request)
     {
-        $movies = $this->getDoctrine()->getRepository('MainBundle:Film');
-        $movies = $movies->findAll();
+        $movies = $this->getDoctrine()->getRepository('MainBundle:Film')->findAll();
 
         $paginator = $this->get('knp_paginator');
         $pagination = $paginator->paginate($movies, $request->query->getInt('page', 1), 25);
@@ -27,15 +37,30 @@ class DefaultController extends Controller
 
             $pagination = $paginator->paginate($movies, $request->query->getInt('page', 1), 25);
 
-            return $this->render('MainBundle:Default:index.html.twig', array(
+            return $this->render('film/index.html.twig',
+                array(
+                    'movies' => $pagination,
+                    'form' => $form->createView()
+                ));
+        }
+
+        return $this->render('film/index.html.twig',
+            array(
                 'movies' => $pagination,
                 'form' => $form->createView()
             ));
-        }
+    }
 
-        return $this->render('MainBundle:Default:index.html.twig', array(
-            'movies' => $pagination,
-            'form' => $form->createView()
+    /**
+     * Finds and displays a film entity.
+     * @param Film $film
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function showAction(Film $film)
+    {
+
+        return $this->render('film/show.html.twig', array(
+            'film' => $film,
         ));
     }
 }

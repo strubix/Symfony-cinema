@@ -1,3 +1,7 @@
+main_film:
+    resource: "@MainBundle/Resources/config/routing/film.yml"
+    prefix:   /films
+
 main_homepage:
     path:     /
     defaults: { _controller: MainBundle:Default:index }

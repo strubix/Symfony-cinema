@@ -29,7 +29,7 @@ class FilmType extends AbstractType
             ->add('genre', EntityType::class, array(
                 'class' => 'MainBundle:Genre',
                 'choice_label' => 'nom',
-                'placeholder' => 'Tout',
+                'placeholder' => 'Tous',
                 'required' => false,
                 'attr' => array('class' => 'form-control')
             ))

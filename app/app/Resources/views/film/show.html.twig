@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Film</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ film.id }}</td>
+            </tr>
+            <tr>
+                <th>Idgenre</th>
+                <td>{% if film.idGenre %}Yes{% else %}No{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Iddistrib</th>
+                <td>{{ film.idDistrib }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ film.titre }}</td>
+            </tr>
+            <tr>
+                <th>Resum</th>
+                <td>{{ film.resum }}</td>
+            </tr>
+            <tr>
+                <th>Datedebutaffiche</th>
+                <td>{% if film.dateDebutAffiche %}{{ film.dateDebutAffiche|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Datefinaffiche</th>
+                <td>{% if film.dateFinAffiche %}{{ film.dateFinAffiche|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Dureemin</th>
+                <td>{{ film.dureeMin }}</td>
+            </tr>
+            <tr>
+                <th>Anneeprod</th>
+                <td>{{ film.anneeProd }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('film_index') }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}
