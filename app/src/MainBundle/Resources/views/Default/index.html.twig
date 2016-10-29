@@ -50,7 +50,7 @@
 
             {% for movie in movies %}
                 <div class="well">
-                    <h4 class="card-title">{{ movie.titre }}</h4>
+                    <h4 class="card-title">({{ movie.anneeProd }}) {{ movie.titre }}</h4>
                     <p>{{ movie.resum }}</p>
                     {% if movie.genre is null %}
                         <p>pas de genre</p>

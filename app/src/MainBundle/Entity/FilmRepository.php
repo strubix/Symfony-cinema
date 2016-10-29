@@ -23,15 +23,21 @@ class FilmRepository extends EntityRepository
 
         if ($data['titre'] != '') {
             $qb
-                ->where('a.titre LIKE :titre')
+                ->andWhere('a.titre LIKE :titre')
                 ->setParameter('titre', '%' . $data['titre'] . '%')
             ;
         }
         if ($data['anneeProd'] != '') {
-            dump($data['anneeProd']);
+            $qb
+                ->andWhere('a.anneeProd = :anneeProd')
+                ->setParameter('anneeProd', $data['anneeProd'])
+            ;
         }
         if ($data['genre'] != '') {
-            dump($data['genre']);
+            $qb
+                ->andWhere('a.genre = :genre')
+                ->setParameter('genre', $data['genre'])
+            ;
         }
 
         return $qb->getQuery()->getResult();
