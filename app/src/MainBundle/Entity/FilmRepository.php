@@ -19,9 +19,13 @@ class FilmRepository extends EntityRepository
      */
     public function findFilmByFilter($data)
     {
-        dump($data);
+        $qb = $this->createQueryBuilder('a');
+
         if ($data['titre'] != '') {
-            dump($data['titre']);
+            $qb
+                ->where('a.titre LIKE :titre')
+                ->setParameter('titre', '%' . $data['titre'] . '%')
+            ;
         }
         if ($data['anneeProd'] != '') {
             dump($data['anneeProd']);
@@ -29,5 +33,7 @@ class FilmRepository extends EntityRepository
         if ($data['genre'] != '') {
             dump($data['genre']);
         }
+
+        return $qb->getQuery()->getResult();
     }
 }

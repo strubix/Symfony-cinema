@@ -23,8 +23,9 @@ class DefaultController extends Controller
 
 
             $em = $this->getDoctrine()->getManager();
-            $movies = $em->getRepository('MainBundle:Film')
-                ->findFilmByFilter($data);
+            $movies = $em->getRepository('MainBundle:Film')->findFilmByFilter($data);
+
+            dump($movies);
 
             $pagination = $paginator->paginate($movies, $request->query->getInt('page', 1), 25);
 
