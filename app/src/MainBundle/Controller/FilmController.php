@@ -16,7 +16,9 @@ class FilmController extends Controller
 {
     /**
      * Lists all film entities.
+     *
      * @param Request $request
+     *
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function indexAction(Request $request)
@@ -53,7 +55,9 @@ class FilmController extends Controller
 
     /**
      * Finds and displays a film entity.
+     *
      * @param Film $film
+     *
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function showAction(Film $film)

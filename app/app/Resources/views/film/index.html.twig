@@ -20,7 +20,7 @@
                 {% else %}
                     <p>{{ movie.genre.nom }}</p>
                 {% endif %}
-                <a href="#">En savoir +</a>
+                <a href="/films/{{ movie.id }}/show">En savoir +</a>
             </div>
         {% endfor %}
     </div>

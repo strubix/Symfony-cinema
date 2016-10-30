@@ -1,7 +1,6 @@
 film_index:
     path:     /
     defaults: { _controller: "MainBundle:Film:index" }
-    methods:  GET
 
 film_show:
     path:     /{id}/show
