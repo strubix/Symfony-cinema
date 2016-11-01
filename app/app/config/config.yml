@@ -11,7 +11,7 @@ parameters:
 
 framework:
     #esi:             ~
-    #translator:      { fallbacks: ["%locale%"] }
+    translator: ~
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -68,6 +68,7 @@ swiftmailer:
     password:  "%mailer_password%"
     spool:     { type: memory }
 
+# Paginator
 knp_paginator:
     page_range: 10
     default_options:
@@ -78,3 +79,9 @@ knp_paginator:
     template:
         pagination: KnpPaginatorBundle:Pagination:foundation_v5_pagination.html.twig
         sortable: KnpPaginatorBundle:Pagination:sortable_link.html.twig
+
+# FOS UserBundle
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: MainBundle\Entity\Employee

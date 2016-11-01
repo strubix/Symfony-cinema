@@ -13,9 +13,28 @@ use Doctrine\ORM\EntityRepository;
 class FilmRepository extends EntityRepository
 {
     /**
+     * Récupère la liste des 3 derniers films
+     *
+     * @return array liste des films
+     */
+    public function findLastFilms()
+    {
+        $maxYear = date('Y') - 5;
+
+        $qb = $this->createQueryBuilder('a');
+        $qb->andWhere('a.anneeProd < ' . $maxYear);
+        $qb->orderBy('a.anneeProd', 'DESC');
+        $qb->setMaxResults(3);
+
+        return $qb->getQuery()->getResult();
+    }
+
+    /**
      * Recherche de films en fonction de filtres définis
+     *
      * @param $data
-     * @return array
+     *
+     * @return array liste des films
      */
     public function findFilmByFilter($data)
     {
@@ -24,20 +43,17 @@ class FilmRepository extends EntityRepository
         if ($data['titre'] != '') {
             $qb
                 ->andWhere('a.titre LIKE :titre')
-                ->setParameter('titre', '%' . $data['titre'] . '%')
-            ;
+                ->setParameter('titre', '%' . $data['titre'] . '%');
         }
         if ($data['anneeProd'] != '') {
             $qb
                 ->andWhere('a.anneeProd = :anneeProd')
-                ->setParameter('anneeProd', $data['anneeProd'])
-            ;
+                ->setParameter('anneeProd', $data['anneeProd']);
         }
         if ($data['genre'] != '') {
             $qb
                 ->andWhere('a.genre = :genre')
-                ->setParameter('genre', $data['genre'])
-            ;
+                ->setParameter('genre', $data['genre']);
         }
 
         return $qb->getQuery()->getResult();
