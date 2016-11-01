@@ -9,7 +9,12 @@ MainBundle\Entity\Employee:
             generator:
                 strategy: AUTO
     fields:
-        name:
-            type: string
-            length: 255
+        jobID:
+            type: boolean
+            nullable: false
+            column: job_id
+        recruited:
+            type: datetime
+            nullable: false
+            column: recruited
     lifecycleCallbacks: {  }
