@@ -9,7 +9,7 @@
             {% for film in films %}
                 <div class="col-md-4">
                     <h2>{{ film.titre }}</h2>
-                    <p>{{ film.resum|length > 50 ? film.resum|truncate(50) ~ '...' : film.resum }}</p>
+                    <p>{{ film.resum|length > 50 ? film.resum|truncate(50) : film.resum }}</p>
                     <p><a class="btn btn-default" href="/films/{{ film.id }}/show">En savoir +</a></p>
                 </div>
             {% endfor %}

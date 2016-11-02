@@ -5,15 +5,26 @@ namespace MainBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
 
+
 /**
  * Employee
  */
 class Employee extends BaseUser
 {
     /**
-     * @var int
+     * @var integer
      */
     protected $id;
+
+    /**
+     * @var boolean
+     */
+    private $jobID;
+
+    /**
+     * @var \DateTime
+     */
+    private $recruited;
 
     /**
      * @var string
@@ -30,39 +41,6 @@ class Employee extends BaseUser
     {
         return $this->id;
     }
-
-    /**
-     * Set name
-     *
-     * @param string $name
-     * @return Employee
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string 
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-    /**
-     * @var boolean
-     */
-    private $jobID;
-
-    /**
-     * @var \DateTime
-     */
-    private $recruited;
-
 
     /**
      * Set jobID
@@ -109,32 +87,27 @@ class Employee extends BaseUser
     {
         return $this->recruited;
     }
-    /**
-     * @var boolean
-     */
-    private $enabled;
-
 
     /**
-     * Set enabled
+     * Set name
      *
-     * @param boolean $enabled
+     * @param string $name
      * @return Employee
      */
-    public function setEnabled($enabled)
+    public function setName($name)
     {
-        $this->enabled = $enabled;
+        $this->name = $name;
 
         return $this;
     }
 
     /**
-     * Get enabled
+     * Get name
      *
-     * @return boolean 
+     * @return string 
      */
-    public function getEnabled()
+    public function getName()
     {
-        return $this->enabled;
+        return $this->name;
     }
 }
