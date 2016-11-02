@@ -17,4 +17,7 @@ MainBundle\Entity\Employee:
             type: datetime
             nullable: false
             column: recruited
+        enabled:
+            type: boolean
+            column: enabled
     lifecycleCallbacks: {  }

@@ -3,16 +3,17 @@
 namespace MainBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\User as BaseUser;
 
 /**
  * Employee
  */
-class Employee
+class Employee extends BaseUser
 {
     /**
      * @var int
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
@@ -107,5 +108,33 @@ class Employee
     public function getRecruited()
     {
         return $this->recruited;
+    }
+    /**
+     * @var boolean
+     */
+    private $enabled;
+
+
+    /**
+     * Set enabled
+     *
+     * @param boolean $enabled
+     * @return Employee
+     */
+    public function setEnabled($enabled)
+    {
+        $this->enabled = $enabled;
+
+        return $this;
+    }
+
+    /**
+     * Get enabled
+     *
+     * @return boolean 
+     */
+    public function getEnabled()
+    {
+        return $this->enabled;
     }
 }
